@@ -1,0 +1,46 @@
+// src/css/bootstrap.scss
+$danger: #dc3545;
+$teamSenseSecondary: #bf8808;
+$teamSensePrimary: #bf4b08;
+$etonBlue: rgba(145, 199, 177, 1);
+$teamSenseDark: #487f78;
+$flax: #f7f1e3;
+$theme-colors: (
+  "primary": $teamSensePrimary,
+  "secondary": $teamSenseSecondary,
+  "light": $etonBlue,
+  "dark": $teamSenseDark
+);
+$white: $flax;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 700px,
+  md: 900px,
+  lg: 1200px,
+  xl: 1500px,
+  xxl: 2300px
+);
+$container-max-widths: (
+  sm: 600px,
+  md: 800px,
+  lg: 1100px,
+  xl: 1300px,
+  xxl: 2000px
+);
+
+$link-color: $teamSensePrimary;
+
+.navbar {
+  height: 64px;
+}
+
+.sub-nav {
+  height: 40px;
+}
+
+.text-danger {
+  color: $danger;
+}
+
+// Import Bootstrap and its default variables
+@import "node_modules/bootstrap/scss/bootstrap";

@@ -1,0 +1,339 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/survey/{id}/add_survey_instance_selection":
+    post:
+      summary: Creates a Survey Question
+      tags:
+      - survey
+      parameters: []
+      responses:
+        '201':
+          description: survey question created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                instance_id:
+                  type: integer
+                question_id:
+                  type: integer
+                selection_id:
+                  type: integer
+                other_choice_text:
+                  type: string
+              required:
+              - instance_id
+              - question_id
+              - selection_id
+              - other_choice_text
+          application/xml:
+            schema:
+              type: object
+              properties:
+                instance_id:
+                  type: integer
+                question_id:
+                  type: integer
+                selection_id:
+                  type: integer
+                other_choice_text:
+                  type: string
+              required:
+              - instance_id
+              - question_id
+              - selection_id
+              - other_choice_text
+  "/api/v1/survey/{id}/add_question":
+    post:
+      summary: Creates a Survey Question
+      tags:
+      - survey
+      parameters: []
+      responses:
+        '201':
+          description: survey question created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                question_text:
+                  type: string
+                question_selections:
+                  type: array
+              required:
+              - question_text
+              - question_selections
+          application/xml:
+            schema:
+              type: object
+              properties:
+                question_text:
+                  type: string
+                question_selections:
+                  type: array
+              required:
+              - question_text
+              - question_selections
+  "/api/v1/survey/{id}/start_survey":
+    post:
+      summary: Creates a Survey Instance
+      tags:
+      - survey
+      parameters: []
+      responses:
+        '201':
+          description: survey question created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                required:
+                - id
+                - name
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                required:
+                - id
+                - name
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required:
+              - name
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+              required:
+              - name
+  "/api/v1/survey":
+    post:
+      summary: Creates a Survey
+      tags:
+      - survey
+      parameters: []
+      responses:
+        '201':          
+          description: survey created          
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  description:
+                    type: string
+                required:
+                - id
+                - name
+                - description
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  description:
+                    type: string
+                required:
+                - id
+                - name
+                - description
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+              required:
+              - name
+              optional:
+              - description
+          application/xml:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+              required:
+              - name
+              optional:
+              - description
+  "/api/v1/survey/{id}":
+    get:
+      summary: Retrieves a survey
+      tags:
+      - survey
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: name found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  surevey_questions:
+                    type: array
+                required:
+                - id
+                - name
+                - description
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  surevey_questions:
+                    type: array
+                required:
+                - id
+                - name
+                - description
+        '404':
+          description: survey not found
+  "/api/v1/survey_questions/{id}":
+    get:
+      summary: Retrieves a survey question
+      tags:
+      - survey
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: name found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  question_text:
+                    type: string
+                  question_selections:
+                    type: array
+                required:
+                - id
+                - question_text
+                - question_selections
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  question_text:
+                    type: string
+                  question_selections:
+                    type: array
+                required:
+                - id
+                - question_text
+                - question_selections
+        '404':
+          description: survey not found
+  "/api/v1/survey/{id}/get_results":
+    get:
+      summary: Retrieves survey results
+      tags:
+      - survey
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: name found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                required:
+                - results
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                required:
+                - results
+        '404':
+          description: survey not found
+servers:
+- url: http://localhost:3000
+  variables:
+    defaultHost:
+      default: localhost:3000
+
