@@ -1,5 +1,12 @@
 # teamsense-interview
 
+## Update
+I have built a frontend conatiner just `cd client && docker compose up --build` and then you can run `docker compose up --build` in this root directory to get the backend up.
+Checkout out the google doc for a screenshot of what all container output looks like.
+
+
+
+## Old, commented out in original Dockerfile
 Docker works, however it appears some routes in the API are conflicting with the front end routes, leading the page to crash, specifically, when taking the survey at `http://localhost:3000/survey/4/take/3/11`
 
 the API thinks it is a route it owns and returns a 404.
