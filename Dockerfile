@@ -2,21 +2,21 @@
 
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
 ARG RUBY_VERSION=3.0.1
-ARG NODE_VERSION=18.16.0
+# ARG NODE_VERSION=18.16.0
 
-FROM node:$NODE_VERSION-slim as client
+# FROM node:$NODE_VERSION-slim as client
 
-WORKDIR /rails/client
+# WORKDIR /rails/client
 
-ENV NODE_ENV=production
+# ENV NODE_ENV=production
 
-# Install node modules
-COPY --link client/package.json client/package-lock.json ./
-RUN npm install
+# # Install node modules
+# COPY --link client/package.json client/package-lock.json ./
+# RUN npm install
 
-# build client application
-COPY --link client .
-RUN npm run build
+# # build client application
+# COPY --link client .
+# RUN npm run build
 
 
 FROM ruby:$RUBY_VERSION-slim as base
@@ -70,7 +70,7 @@ COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY --from=build /rails /rails
 
 # Copy built client
-COPY --from=client /rails/client/dist /rails/public
+# COPY --from=client /rails/client/dist /rails/public
 
 RUN groupadd -f -g 1000 rails && \
     useradd -u 1000 -g 1000 rails --create-home --shell /bin/bash && \
