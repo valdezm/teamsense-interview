@@ -177,6 +177,9 @@ export const EditSurvey = () => {
           </div>
 
           <div className="col-md-6" style={{ backgroundColor: "#fff" }}>
+          <small>
+                  This is a preview of the survey.
+                </small>
             <h1>{editSurveyQuestion}</h1>
             <form
               onSubmit={(e) => {
