@@ -53,6 +53,9 @@ COPY --link . .
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
+# Adjust binfiles to be executable on Linux
+RUN chmod +x bin/*
+
 
 # Final stage for app image
 FROM base
@@ -67,7 +70,7 @@ COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY --from=build /rails /rails
 
 # Copy built client
-COPY --from=client /rails/client/build /rails/public
+COPY --from=client /rails/client/dist /rails/public
 
 RUN groupadd -f -g 1000 rails && \
     useradd -u 1000 -g 1000 rails --create-home --shell /bin/bash && \

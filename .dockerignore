@@ -20,8 +20,6 @@
 !/log/.keep
 !/tmp/.keep
 
-/tmp/pgdata
-
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/

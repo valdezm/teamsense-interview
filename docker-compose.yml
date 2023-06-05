@@ -9,7 +9,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - RAILS_MASTER_KEY=f0c858f11394493932fce91b153b5cc2
+      - RAILS_MASTER_KEY=60cfbd6c8c60b4a5dc4fb2fa68168167
       - DATABASE_URL=postgres://root:password@postgres-db/
     depends_on:
       postgres-db:
@@ -21,7 +21,7 @@ services:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: password
     volumes:
-      - /tmp/pgdata:/var/lib/postgresql/data
+      - ./tmp/db:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     healthcheck:

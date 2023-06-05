@@ -8,7 +8,7 @@ export const Jumbotron = () => {
     <>
       <section className="jumbotron text-center mb-0 bg-white">
         <div className="container">
-          <h1 className="jumbotron-heading">Survery</h1>
+          <h1 className="jumbotron-heading">Survey</h1>
           <p className="lead text-muted">
             Let's work on getting a survery together.
             <br />

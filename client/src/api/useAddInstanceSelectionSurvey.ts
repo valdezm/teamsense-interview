@@ -1,5 +1,4 @@
 
-import { Survey } from '../model/Survey';
 import { Api } from './v8/myApi';
 
 type NewSurvey = [(survey_id: string, instance_id: number, question_id: number, selection_id: number, other_choice_text: string) => Promise<void>];

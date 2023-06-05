@@ -1,7 +1,20 @@
 # teamsense-interview
 
-docker image doesn't have `rails db:seed` command
+Docker works, however it appears some routes in the API are conflicting with the front end routes, leading the page to crash, specifically, when taking the survey at `http://localhost:3000/survey/4/take/3/11`
 
+the API thinks it is a route it owns and returns a 404.
+
+That is a client/front route though.
+
+So best to run this on ports 5173 for the frontend consuming the backend on port 3000.
+
+Until I fix that.
+
+However if you want to run docker `docker compose up --build` will work
+
+
+
+LOCAL
 to run locally:
 
 backend(in root directory):
