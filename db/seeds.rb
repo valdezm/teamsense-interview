@@ -6,7 +6,7 @@
 # SurveyQuestion.destroy_all
 # Survey.destroy_all
 
-
+if Survey.all.count == 0
 Survey.create!([
                  {
                    name: 'TeamSense Survey',
@@ -241,6 +241,7 @@ question6 = SurveyQuestion.where(question_text: 'What is your favorite hobby?').
 end
 
 p "Created #{SurveyQuestionSelection.count} selections"
+end
 
 # Create some responses for Survey 1 Question 1
 # survey1_question1 = SurveyQuestion.where(survey_id: survey1.id, text: "What is your favorite color?").each do |question|
