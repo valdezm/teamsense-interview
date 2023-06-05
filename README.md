@@ -4,6 +4,8 @@
 I have built a frontend conatiner just `cd client && docker compose up --build` and then you can run `docker compose up --build` in this root directory to get the backend up.
 Checkout out the google doc for a screenshot of what all container output looks like.
 
+Once the frontend and backend contianer are up, you can navigate to: http://localhost:5173 for the frontend which will consume from http://localhost:3000 . Docs for the API are generated at  http://localhost:3000/docs
+
 
 
 ## Old, commented out in original Dockerfile
