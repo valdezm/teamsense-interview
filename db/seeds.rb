@@ -1,10 +1,10 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-SurveyISelection.destroy_all
-SurveyInstance.destroy_all
-SurveyQuestionSelection.destroy_all
-SurveyQuestion.destroy_all
-Survey.destroy_all
+# SurveyISelection.destroy_all
+# SurveyInstance.destroy_all
+# SurveyQuestionSelection.destroy_all
+# SurveyQuestion.destroy_all
+# Survey.destroy_all
 
 
 Survey.create!([
